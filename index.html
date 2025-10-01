@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Olio Tàniga Bio – One Page</title>
+  <title>Olio Tàniga</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
 
@@ -50,15 +50,15 @@
     .corner-box {position:absolute; width:60px; height:60px; z-index:3; box-shadow:1px 1px 4px rgba(0,0,0,.1)}
     .corner-box.green { background-color: var(--ink);} 
     .corner-box.yellow { background-color: var(--gold);} 
-    .top-left { top: 38px; left: 20px; }
-    .bottom-right-1 { bottom: 52px; right: 52px; }
+    .top-left { top: 68px; left: 20px; }
+    .bottom-right-1 { bottom: 62px; right: 52px; }
     .bottom-right-2 { bottom: 10px; right: 15px; z-index: 3; }
 
     /* TIPOGRAFIA HERO */
-    .logo { width:120px; max-width:120px; height:auto; margin: 0 auto 2rem; display:block; }
+    .logo { width:200px; max-width:200px; height:auto; margin: 0 auto 2rem; display:block; }
     .line { height:1px; background-color: var(--line); margin: 20px auto; width:60%; }
-    .row1{ font-size: 2rem; }
-    .row1 .small{ font-size:1rem; font-style: italic; }
+    .row1{ font-size: 2.8rem; }
+    .row1 .small{ font-size:1.4rem; font-style: italic; }
     .row2{ font-size: 1.4rem; margin-top:.5rem; }
     .row3{ font-size:2rem; font-weight:bold; margin-top:.5rem; font-family:'Playfair Display', serif; }
     .taniga{ font-family:'Playfair Display', serif; color: var(--gold); }
@@ -128,6 +128,31 @@
       .navbar{ gap:.5rem; font-size:14px; }
     }
 
+    /* --- NEW: Frecce laterali per le gallery (solo mobile) --- */
+    .gallery-container { position: relative; }
+    .gallery-arrow { display:none; }
+
+    @media (max-width: 760px){
+      .gallery-arrow {
+        display:block;
+        position:absolute;
+        top:50%;
+        transform:translateY(-50%);
+        font-size:1.6rem;
+        color:rgba(255,255,255,0.8);
+        background:rgba(0,0,0,0.25);
+        border-radius:50%;
+        padding:6px 10px;
+        cursor:pointer;
+        user-select:none;
+        z-index:5;
+        line-height:1;
+      }
+      .gallery-arrow.left { left:8px; }
+      .gallery-arrow.right { right:8px; }
+      .gallery-arrow:active { background:rgba(0,0,0,0.4); }
+    }
+
     /* FOOTER */
     .site-footer{
       background: var(--ink);
@@ -151,7 +176,7 @@
     <!-- EDIT: racchiuso i link in .menu-links (desktop identico) -->
     <div class="menu-links">
       <a href="#home">Home</a>
-      <a href="#introduction">Introduction</a>
+      <a href="#introduction">Heritage</a>
       <a href="#product">Product</a>
       <a href="#process">Process</a>
       <a href="#tips">Tips</a>
@@ -188,7 +213,7 @@
                   margin:20px auto 50px;
                   color:rgb(48,76,67);">
         <h2 id="intro-title" style="font-family:'Playfair Display',serif; font-size:32px;margin:0 0 12px; color:rgb(206,164,13); font-weight:bold;">
-          Introduction
+          The heritage
         </h2>
         <p style="font-size:18px; margin:0;">
           Tàniga extra-virgin olive oil BIO – DOP comes from the secular olive trees located
@@ -208,7 +233,6 @@
       max-width: 500px;
       width: 90%;
       margin: 40px auto 0;
-      border-radius: 8px;
       color: rgb(48,76,67);
     }
     #cbx-taniga h2{
@@ -233,12 +257,17 @@
   <!-- PRODUCT -->
   <section id="product" class="panel anchor" aria-label="Prodotto" style="--veil:.35;">
     <div class="inner">
-      <h2 class="section-title" style="font-size:32px;">The Product</h2>
+      <h2 class="section-title" style="font-size:32px;">The product</h2>
       <p class="copy" style="font-size: 18px;">The oil is a deep golden green color and is characterized by a deliciously intense flavor with a slight aftertaste of thistle, artichoke and a variety of Sardinian herbs.</p>
-      <div class="gallery" aria-label="Galleria prodotto">
-        <img src="bottiglie web.jpeg" alt="Ulivi al tramonto">
-        <img src="olio in ciotola web.jpeg" alt="Bottiglia Olio Tàniga">
-        <img src="Bottiglia.jpg" alt="Pane e olio">
+      <!-- Gallery con frecce -->
+      <div class="gallery-container">
+        <div class="gallery" aria-label="Galleria prodotto">
+          <img src="bottiglie web.jpeg" alt="Ulivi al tramonto">
+          <img src="olio in ciotola web.jpeg" alt="Bottiglia Olio Tàniga">
+          <img src="Bottiglia.jpg" alt="Pane e olio">
+        </div>
+        <span class="gallery-arrow left">&#10094;</span>
+        <span class="gallery-arrow right">&#10095;</span>
       </div>
     </div>
   </section>
@@ -254,7 +283,7 @@
                   margin:20px auto 50px;
                   color:rgb(48,76,67);">
         <h2 id="intro-title" style="font-family:'Playfair Display',serif; font-size:32px; margin:0 0 12px; color:rgb(206,164,13); font-weight:bold;">
-          Production Process
+          Production process
         </h2>
         <p style="font-size:18px; margin:0;">
           State of the art machinery belonging to the "Oleificio Secchi" olive mill presses the olives on the very same day they have been picked. The entire procedure is carried out at a low temperature in order to guarantee the very high quality oil that is synonymous with the Tàniga farm.
@@ -266,39 +295,95 @@
   <style>
     /* Stili limitati solo a #cbx-taniga (sezione process) lasciati invariati */
     #cbx-taniga{
-      background: rgba(255,255,255,0.9);
-      padding: 30px 40px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      max-width: 500px;
-      width: 90%;
-      margin: 80px auto 0;
-      border-radius: 8px;
-      color: rgb(48,76,67);
-    }
-    #cbx-taniga h2{ font-family: 'Playfair Display', serif; font-size: 12px; margin: 0 0 20px; color: rgb(206,164,13); font-weight: bold; }
-    #cbx-taniga .cbx-sub{ font-size: 12px; margin: 0 0 20px; font-weight: bold; }
-    #cbx-taniga .cbx-item{ margin: 20px 0; font-size: 18px; display:flex; align-items:center; gap:12px; justify-content:flex-start; transition: transform .2s ease; }
-    #cbx-taniga .cbx-item:hover{ transform: scale(1.03); }
-    #cbx-taniga .cbx-ico{ width:25px; height:25px; display:inline-flex; }
-    #cbx-taniga .cbx-ico svg{ width:100%; height:100%; }
-    #cbx-taniga a{ color: rgb(48,76,67); text-decoration:none; font-weight:bold; transition: color .2s ease; }
-    #cbx-taniga a:hover{ color: rgb(206,164,13); }
-    @media (max-width:600px){
-      #cbx-taniga{ padding: 20px; }
-      #cbx-taniga .cbx-item{ font-size:12px; }
-      #cbx-taniga .cbx-ico{ width:20px; height:20px; }
-    }
+  background: rgba(255,255,255,0.9);
+  padding: 30px 40px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  max-width: 500px;
+  width: 90%;
+  margin: 40px auto 0;
+  color: rgb(48,76,67);
+}
+
+#cbx-taniga h2{
+  font-family: 'Playfair Display', serif;
+  font-size: 12px; 
+  margin: 0 0 20px;
+  color: rgb(206,164,13); 
+  font-weight: bold;
+}
+
+#cbx-taniga .cbx-sub{ 
+  font-size: 12px; 
+  margin: 0 0 20px; 
+  font-weight: bold; 
+}
+
+#cbx-taniga .cbx-item{ 
+  margin: 20px 0; 
+  font-size: 18px; 
+  display:flex; 
+  align-items:center; 
+  gap:12px; 
+  justify-content:flex-start; 
+  transition: transform .2s ease; 
+}
+
+#cbx-taniga .cbx-item:hover{ transform: scale(1.03); }
+
+#cbx-taniga .cbx-ico{ 
+  width:25px; 
+  height:25px; 
+  display:inline-flex; 
+}
+#cbx-taniga .cbx-ico svg{ 
+  width:100%; 
+  height:100%; 
+}
+
+/* link normali bold */
+#cbx-taniga a{
+  color: rgb(48,76,67); 
+  text-decoration:none; 
+  font-weight:bold; 
+  transition: color .2s ease;
+}
+#cbx-taniga a:hover{ color: rgb(206,164,13); }
+
+/* 👇 solo email, telefono e whatsapp NON bold */
+#cbx-taniga a[href^="mailto"],
+#cbx-taniga a[href^="tel"],
+#cbx-taniga a[href*="wa.me"] {
+  font-weight: normal;
+}
+
+@media (max-width:600px){
+  #cbx-taniga{ padding: 20px; }
+  #cbx-taniga .cbx-item{ font-size:12px; }
+  #cbx-taniga .cbx-ico{ width:20px; height:20px; }
+}
+
+/* Solo email/telefono/WhatsApp NON bold */
+#cbx-taniga a[href^="mailto"],
+#cbx-taniga a[href^="tel"],
+#cbx-taniga a[href*="wa.me"]{
+  font-weight: normal !important;
+}
   </style>
 
   <!-- TIPS -->
   <section id="tips" class="panel anchor" aria-label="Tips" data-bg="images/tips.jpg" style="--veil:.35">
     <div class="inner">
-      <h2 class="section-title" style="font-size:32px;">Tips</h2>
+      <h2 class="section-title" style="font-size:32px;">Tips for use</h2>
       <p class="copy" style="font-size: 18px;">Tàniga oil is an ideal dressing for either fish or meat and a must for salad and bruschettas. Simply poured onto some fresh bread to savor it in all its glory, the characteristic Sardinian Carasau bread is a delicious example. It's also excellent for cooking and one of the healthiest for frying, as it resists high temperatures. It fully enhances Mediterranean cuisine.</p>
-      <div class="gallery" aria-label="Galleria prodotto">
-        <img src="bottiglia con panino.jpg" alt="Ulivi al tramonto">
-        <img src="con carne web.webp" alt="Bottiglia Olio Tàniga" style="object-position: 90% center;">
-        <img src="carasau web.jpeg" alt="Pane e olio">
+      <!-- Gallery con frecce -->
+      <div class="gallery-container">
+        <div class="gallery" aria-label="Galleria prodotto">
+          <img src="bottiglia con panino.jpg" alt="Ulivi al tramonto">
+          <img src="con carne web.webp" alt="Bottiglia Olio Tàniga" style="object-position: 90% center;">
+          <img src="carasau web.jpeg" alt="Pane e olio">
+        </div>
+        <span class="gallery-arrow left">&#10094;</span>
+        <span class="gallery-arrow right">&#10095;</span>
       </div>
     </div>
   </section>
@@ -317,7 +402,7 @@
           <span class="cbx-ico" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"/></svg>
           </span>
-          <span><strong>Via Giuseppe Brentano n.2 - Milan Italy</strong></span>
+          <span>Via Giuseppe Brentano n.2 - Milan Italy</span>
         </div>
 
         <div class="cbx-item">
@@ -353,8 +438,8 @@
       if(!raw) return;
       const src = encodeURI(raw);
       const img = new Image();
-      img.onload  = ()=>{ el.style.backgroundImage = `url('${src}')`; };
-      img.onerror = ()=>{ el.style.backgroundImage = `url('${raw}')`; };
+      img.onload  = ()=>{ el.style.backgroundImage = url('${src}'); };
+      img.onerror = ()=>{ el.style.backgroundImage = url('${raw}'); };
       img.src = src;
     });
   })();
@@ -368,6 +453,23 @@
     // chiudi menu quando clicchi un link (UX)
     menu.addEventListener('click', (e)=>{
       if(e.target.tagName === 'A'){ menu.classList.remove('show'); }
+    });
+  })();
+
+  // --- NEW: frecce laterali per scrollare le gallery su mobile ---
+  (function(){
+    document.querySelectorAll('.gallery-container').forEach(container => {
+      const gallery = container.querySelector('.gallery');
+      const leftArrow = container.querySelector('.gallery-arrow.left');
+      const rightArrow = container.querySelector('.gallery-arrow.right');
+      if(!gallery || !leftArrow || !rightArrow) return;
+
+      leftArrow.addEventListener('click', () => {
+        gallery.scrollBy({ left: -300, behavior: 'smooth' });
+      });
+      rightArrow.addEventListener('click', () => {
+        gallery.scrollBy({ left: 300, behavior: 'smooth' });
+      });
     });
   })();
   </script>
